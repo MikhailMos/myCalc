@@ -42,6 +42,6 @@ public class MyExpression {
 
     @Override
     public String toString() {
-        return (Double.toString(a) + " " + operator + " " + Double.toString(b) + " = ");
+        return (a + " " + operator + " " + b + " = ");
     }
 }
