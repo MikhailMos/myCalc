@@ -58,7 +58,7 @@ class MyCalcTest {
         ArrayList<MyExpression> list = new ArrayList<>(1);
         list.add(listOfExpressions);
 
-        assertEquals(result, MyCalc.calculate(list));
+        Assertions.assertEquals(result, MyCalc.calculate(list));
     }
 
     @ParameterizedTest
@@ -67,7 +67,7 @@ class MyCalcTest {
         ArrayList<MyExpression> list = new ArrayList<>(1);
         list.add(listOfExpressions);
 
-        assertEquals(result, MyCalc.calculate(list));
+        Assertions.assertEquals(result, MyCalc.calculate(list));
     }
 
     @ParameterizedTest
@@ -76,7 +76,7 @@ class MyCalcTest {
         ArrayList<MyExpression> list = new ArrayList<>(1);
         list.add(listOfExpressions);
 
-        assertEquals(result, MyCalc.calculate(list));
+        Assertions.assertEquals(result, MyCalc.calculate(list));
     }
 
     @ParameterizedTest
@@ -85,7 +85,7 @@ class MyCalcTest {
         ArrayList<MyExpression> list = new ArrayList<>(1);
         list.add(listOfExpressions);
 
-        assertEquals(result, MyCalc.calculate(list));
+        Assertions.assertEquals(result, MyCalc.calculate(list));
     }
 
     @Test
