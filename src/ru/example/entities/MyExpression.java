@@ -1,10 +1,12 @@
+package ru.example.entities;
+
 public class MyExpression {
     private double a, b;
     private String operator;
 
     MyExpression() {}
 
-    MyExpression(double a, double b, String operator) {
+    public MyExpression(double a, double b, String operator) {
         this.a = a;
         this.b = b;
         this.operator = operator;

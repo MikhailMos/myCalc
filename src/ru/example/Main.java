@@ -1,3 +1,9 @@
+package ru.example;
+
+import ru.example.entities.MyCalc;
+import ru.example.entities.MyExpression;
+import ru.example.entities.ParseInput;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -8,7 +14,7 @@ public class Main {
         Scanner in = new Scanner(System.in);
 
         System.out.println("+---------------------------------------------------------------+");
-        System.out.println("| Для выхода из программы наберите \"esc\" (регистронезависимо)! |");
+        System.out.println("| Для выхода из программы наберите \"exit\" (регистронезависимо)! |");
         System.out.println("+---------------------------------------------------------------+");
 
         while (true) {
@@ -19,7 +25,7 @@ public class Main {
                 String input = in.nextLine();
 
                 // проверка выхода из цикла
-                if (input.equalsIgnoreCase("Esc")) {
+                if (input.equalsIgnoreCase("exit")) {
                     break;
                 }
 

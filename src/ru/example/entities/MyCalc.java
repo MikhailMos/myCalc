@@ -1,3 +1,5 @@
+package ru.example.entities;
+
 import java.util.ArrayList;
 
 public class MyCalc {
