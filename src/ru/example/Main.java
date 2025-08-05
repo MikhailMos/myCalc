@@ -29,7 +29,7 @@ public class Main {
                     break;
                 }
 
-                ArrayList<MyExpression> listOfExpressions = ParseInput.result(input);
+                ArrayList<MyExpression> listOfExpressions = ParseInput.parse(input); // ParseInput.result(input);
                 double result = MyCalc.calculate(listOfExpressions);
 
                 System.out.printf("Результат: %f\n", result);
