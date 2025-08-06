@@ -1,63 +1,26 @@
 package ru.example;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.Arguments;
-import org.junit.jupiter.params.provider.MethodSource;
+import org.junit.jupiter.params.provider.ArgumentsSource;
+import ru.example.dateForTests.ArgumentsForAdd;
+import ru.example.dateForTests.ArgumentsForDivision;
+import ru.example.dateForTests.ArgumentsForMultiplication;
+import ru.example.dateForTests.ArgumentsForSubstraction;
 import ru.example.entities.MyCalc;
 import ru.example.entities.MyExpression;
 
 import java.util.ArrayList;
-import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class MyCalcTest {
 
-    static Stream<Arguments> provideNumberForAdd() {
-        return Stream.of(
-                Arguments.of(new MyExpression(1.0, 2.0, "+"), 3.0),
-                Arguments.of(new MyExpression(-1.0, 2.0, "+"), 1.0),
-                Arguments.of(new MyExpression(1.0, -2.0, "+"), -1.0),
-                Arguments.of(new MyExpression(-1.0, -2.0, "+"), -3.0),
-                Arguments.of(new MyExpression(0.0, 0.0, "+"), 0.0)
-        );
-    }
-
-    static Stream<Arguments> provideNumberForSubstraction() {
-        return Stream.of(
-                Arguments.of(new MyExpression(1.0, 2.0, "-"), -1.0),
-                Arguments.of(new MyExpression(-1.0, 2.0, "-"), -3.0),
-                Arguments.of(new MyExpression(1.0, -2.0, "-"), 3.0),
-                Arguments.of(new MyExpression(-1.0, -2.0, "-"), 1.0),
-                Arguments.of(new MyExpression(0.0, 0.0, "-"), 0.0)
-        );
-    }
-
-    static Stream<Arguments> provideNumberForMult() {
-        return Stream.of(
-                Arguments.of(new MyExpression(2.0, 2.0, "*"), 4.0),
-                Arguments.of(new MyExpression(-2.0, 2.0, "*"), -4.0),
-                Arguments.of(new MyExpression(2.0, -2.0, "*"), -4.0),
-                Arguments.of(new MyExpression(-2.0, -2.0, "*"), 4.0),
-                Arguments.of(new MyExpression(0.0, 2.0, "*"), 0.0),
-                Arguments.of(new MyExpression(2.0, 0.0, "*"), 0.0)
-        );
-    }
-
-    static Stream<Arguments> provideNumberForDev() {
-        return Stream.of(
-                Arguments.of(new MyExpression(4.0, 2.0, "/"), 2.0),
-                Arguments.of(new MyExpression(-4.0, 2.0, "/"), -2.0),
-                Arguments.of(new MyExpression(4.0, -2.0, "/"), -2.0),
-                Arguments.of(new MyExpression(-4.0, -2.0, "/"), 2.0),
-                Arguments.of(new MyExpression(0.0, 2.0, "/"), 0.0)
-        );
-    }
-
+    @DisplayName("Addition tests")
     @ParameterizedTest
-    @MethodSource("provideNumberForAdd")
+    @ArgumentsSource(ArgumentsForAdd.class)
     public void testCalculateAdd(MyExpression listOfExpressions, double result) {
         ArrayList<MyExpression> list = new ArrayList<>(1);
         list.add(listOfExpressions);
@@ -65,8 +28,9 @@ class MyCalcTest {
         Assertions.assertEquals(result, MyCalc.calculate(list));
     }
 
+    @DisplayName("Substraction tests")
     @ParameterizedTest
-    @MethodSource("provideNumberForSubstraction")
+    @ArgumentsSource(ArgumentsForSubstraction.class)
     public void testCalculateSubstraction(MyExpression listOfExpressions, double result) {
         ArrayList<MyExpression> list = new ArrayList<>(1);
         list.add(listOfExpressions);
@@ -74,8 +38,9 @@ class MyCalcTest {
         Assertions.assertEquals(result, MyCalc.calculate(list));
     }
 
+    @DisplayName("Multiplication tests")
     @ParameterizedTest
-    @MethodSource("provideNumberForMult")
+    @ArgumentsSource(ArgumentsForMultiplication.class)
     public void testCalculateMult(MyExpression listOfExpressions, double result) {
         ArrayList<MyExpression> list = new ArrayList<>(1);
         list.add(listOfExpressions);
@@ -83,8 +48,9 @@ class MyCalcTest {
         Assertions.assertEquals(result, MyCalc.calculate(list));
     }
 
+    @DisplayName("Division tests")
     @ParameterizedTest
-    @MethodSource("provideNumberForDev")
+    @ArgumentsSource(ArgumentsForDivision.class)
     public void testCalculateDev(MyExpression listOfExpressions, double result) {
         ArrayList<MyExpression> list = new ArrayList<>(1);
         list.add(listOfExpressions);
@@ -92,6 +58,7 @@ class MyCalcTest {
         Assertions.assertEquals(result, MyCalc.calculate(list));
     }
 
+    @DisplayName("Division by zero (exception expected)")
     @Test
     public void testCalculateDevException() {
         ArrayList<MyExpression> list = new ArrayList<>(1);
