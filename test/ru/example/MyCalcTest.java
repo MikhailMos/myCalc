@@ -5,10 +5,10 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ArgumentsSource;
-import ru.example.dateForTests.ArgumentsForAdd;
-import ru.example.dateForTests.ArgumentsForDivision;
-import ru.example.dateForTests.ArgumentsForMultiplication;
-import ru.example.dateForTests.ArgumentsForSubstraction;
+import ru.example.dataForTests.ArgumentsForAdd;
+import ru.example.dataForTests.ArgumentsForDivision;
+import ru.example.dataForTests.ArgumentsForMultiplication;
+import ru.example.dataForTests.ArgumentsForSubstraction;
 import ru.example.entities.MyCalc;
 import ru.example.entities.MyExpression;
 

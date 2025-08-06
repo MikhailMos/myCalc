@@ -1,4 +1,4 @@
-package ru.example.dateForTests;
+package ru.example.dataForTests;
 
 import org.junit.jupiter.api.extension.ExtensionContext;
 import org.junit.jupiter.params.provider.Arguments;
